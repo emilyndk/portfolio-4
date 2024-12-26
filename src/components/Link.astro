@@ -1,0 +1,26 @@
+---
+// Link.astro
+
+const { href = "#", type = "primary" } = Astro.props;
+
+const linkStyling = `
+  text-lavender-600
+  transition-all duration-300 ease-in-out font-body text-button-d text-center 
+  hover:text-lavender-500 
+  aria-[current=page]:text-lime-600 
+  aria-[current=page]:bg-lime-500 
+  aria-[current=page]:border
+  aria-[current=page]:border-bd 
+  aria-[current=page]:py-padding-button-y-d 
+  aria-[current=page]:px-padding-button-x-d 
+  aria-[current=page]:rounded-full
+`;
+
+const typeClasses = {
+  primary: "",
+};
+---
+
+<a href={href} class:list={[linkStyling, typeClasses[type]]} data-link={href}>
+  <slot />
+</a>

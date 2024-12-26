@@ -1,0 +1,153 @@
+---
+// Import Link component
+import Link from "./Link.astro";
+---
+
+<!-- Header Section -->
+<header class="fixed top-0 left-0 w-full z-50">
+  <!-- Burger Button -->
+  <button id="burger-button" class="z-50 md:hidden flex items-center mt-padding-xs justify-center w-14 h-14 right-[10%] absolute transition-opacity duration-200">
+    <span class="open-icon transition-transform transition-opacity duration-300 opacity-100 scale-100">
+      <img src="/svg/close.svg" alt="Menu" class="w-[40px]" />
+    </span>
+    <span class="close-icon transition-transform transition-opacity duration-300 opacity-0 scale-75 absolute">
+      <img src="/svg/open.svg" alt="Close" class="w-[30px]" />
+    </span>
+  </button>
+
+  <!-- Desktop Menu -->
+  <nav class="hidden md:block">
+    <ul class="flex justify-between m-padding-xs px-padding-xl py-padding-sm border border-bd border-lavender-600 rounded-full bg-isabelline">
+      <li><Link href="#top" type="primary">TOP</Link></li>
+      <li><Link href="#om" type="primary">OM MIG</Link></li>
+      <li><Link href="#projekter" type="primary">PROJEKTER</Link></li>
+    </ul>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="fixed inset-0 w-full h-full bg-isabelline flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
+    <nav>
+      <ul class="flex flex-col gap-padding-ml text-center">
+        <li><Link href="#top" type="primary">TOP</Link></li>
+        <li><Link href="#om" type="primary">OM MIG</Link></li>
+        <li><Link href="#projekter" type="primary">PROJEKTER</Link></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Scroll Active State Script -->
+<script>
+  const sections = document.querySelectorAll("section");
+  const desktopNavLi = document.querySelectorAll("nav ul li");
+  const mobileNavLi = document.querySelectorAll("#mobile-menu nav ul li");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop - 100; // Adjust offset for header height
+      const sectionHeight = section.offsetHeight;
+
+      // Check if the section is in view
+      if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    // Update active state in both desktop and mobile menus
+    updateActiveState(current);
+  });
+
+  // Update active state for both desktop and mobile menu items
+  function updateActiveState(current) {
+    desktopNavLi.forEach((li) => {
+      const link = li.querySelector('a');
+      li.classList.remove("active");
+      if (link.getAttribute('href') === `#${current}`) {
+        li.classList.add("active");
+      }
+    });
+
+    mobileNavLi.forEach((li) => {
+      const link = li.querySelector('a');
+      li.classList.remove("active");
+      if (link.getAttribute('href') === `#${current}`) {
+        li.classList.add("active");
+      }
+    });
+  }
+</script>
+
+<!-- Burger Menu Toggle Script -->
+<script>
+  const burgerButton = document.getElementById('burger-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const openIcon = burgerButton.querySelector('.open-icon');
+  const closeIcon = burgerButton.querySelector('.close-icon');
+  const links = mobileMenu.querySelectorAll('a[data-link]'); // Ensure these are correct links
+
+  // Function to toggle the mobile menu visibility
+  function toggleMenu() {
+    const isMenuOpen = mobileMenu.classList.contains('opacity-100');  // Check if the menu is open
+
+    // Show/hide the mobile menu
+    mobileMenu.classList.toggle('opacity-100', !isMenuOpen); // Open/close the menu
+    mobileMenu.classList.toggle('pointer-events-none', isMenuOpen); // Disable pointer events when menu is closed
+
+    // Toggle the burger icon (open and close)
+    if (isMenuOpen) {
+        // If the menu is open, hide the open icon and show the close icon
+        closeIcon.classList.add('opacity-0', 'scale-75');
+        closeIcon.classList.remove('opacity-100', 'scale-100');
+        
+        openIcon.classList.add('opacity-100', 'scale-100');
+        openIcon.classList.remove('opacity-0', 'scale-75');
+    } else {
+        // If the menu is closed, show the open icon and hide the close icon
+        closeIcon.classList.add('opacity-100', 'scale-100');
+        closeIcon.classList.remove('opacity-0', 'scale-75');
+        
+        openIcon.classList.add('opacity-0', 'scale-75');
+        openIcon.classList.remove('opacity-100', 'scale-100');
+    }
+  }
+
+  // Toggle the menu when the burger button is clicked
+  burgerButton.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevent the click event from propagating
+    toggleMenu();
+  });
+
+  // Close the mobile menu when clicking anywhere outside the menu or burger button
+  document.addEventListener('click', (e) => {
+    if (!burgerButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+      // Close the menu if it's open
+      if (mobileMenu.classList.contains('opacity-100')) {
+        toggleMenu();
+      }
+    }
+  });
+
+  // Prevent the mobile menu from closing when clicking inside the menu itself
+  mobileMenu.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevent click from propagating to the document listener
+  });
+
+  // Close the menu when any link is clicked
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      if (mobileMenu.classList.contains('opacity-100')) {
+        toggleMenu(); // Close the menu when a link is clicked
+      }
+    });
+  });
+
+  // Close the mobile menu if the background itself (outside of the links) is clicked
+  mobileMenu.addEventListener('click', (e) => {
+    // If the background is clicked (not the links), close the menu
+    if (e.target === mobileMenu) {
+      toggleMenu();
+    }
+  });
+</script>

@@ -1,0 +1,194 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Button from '../components/Button.astro';
+import Link from '../components/Link.astro';
+import Card from "../components/Card.astro";
+import { Image } from 'astro:assets';
+import thumbsup from "../assets/images/thumbsup.png";
+import Footer from "../components/Footer.astro";
+import Carrousel from "../components/Carrousel.astro";
+---
+
+<MainLayout title="Portfolio">
+
+  <section id="top" class="border-b border-b-border-bm md:border-b-border-bd border-lavender-600 ">
+
+    <!-- Mobile Hero -->
+    <div 
+      id="mobile-hero" 
+      class="md:hidden bg-no-repeat bg-top bg-contain pb-padding-m" 
+      style="background-image: url('/svg/hero-lavender-m.svg');"
+    >
+      <div class="flex flex-col justify-center gap-padding-m mx-padding-sm pt-padding-ml">
+        
+        <!-- Row 1: Portrait and Contact Button -->
+        <div id="mobile-hero-row-1" class="flex flex-col justify-center items-center gap-padding-xs">
+          <img 
+            src="/svg/portrait-m.svg" 
+            alt="Portrait" 
+            class="w-3/4"
+          />
+          <a href="#footer"><Button type="secondary">KONTAKT</Button></a>
+        </div>
+
+        <!-- Row 2: Headline, Description, and Projects Button -->
+        <div id="mobile-hero-row-2" class="flex flex-col justify-center items-center gap-padding-xs">
+          <div>
+            <h1 class="text-h1-hero-m font-headline text-lavender-600">
+              WEB <br /> PORTFOLIO
+            </h1>
+            <p class="text-body-m-m text-night font-body">
+              Et indblik i mit arbejde som multimediedesigner.
+            </p>
+          </div>
+          <a href="#projekter"><Button type="primary">SE PROJEKTER</Button></a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Desktop Hero -->
+    <div 
+    id="desk-hero" 
+    class="hidden bg-no-repeat bg-right h-screen md:block px-padding-xl  " 
+    style="background-image: url('/svg/hero-lavender.svg');">
+
+    <div class="flex flex-row pt-padding-4.1xl justify-between ">
+
+    <div id="desk-hero-row-1" class="flex flex-col gap-padding-3xl ">
+
+        <div class="flex flex-col gap-padding-sm">
+<h1 class="text-lavender-600 font-headline text-h1-hero-d">WEBPORT <br> FOLIO</h1>
+<p class="text-night font-body text-body-l-d">Et indblik i mit arbejde som <br>multimediedesigner.</p>
+</div>
+
+<div class="self-center">
+  <a href="#projekter"><Button type="primary">SE PROJEKTER</Button></a>
+</div>
+
+    </div>
+
+    <div id="desk-hero-row-2" class="flex flex-col justify-center items-center gap-padding-xs">
+
+        <img src="/svg/portrait-d.svg" alt="Portrait">
+        <a href="#footer"><Button type="secondary">KONTAKT</Button></a>
+
+
+
+    </div>
+</div>
+
+
+  </div>
+
+    
+
+  </section>
+
+
+  <section id="om" class=" ">
+
+    <div class="md:mx-padding-4xl mx-padding-sm py-padding-m">
+    <h1 class="text-h1-m-m md:text-h1-m-d text-lavender-600 font-headline pb-padding-sm md:pb-padding-xl md:text-center md:mt-padding-2xs ">BAG SKÆRMEN</h1>
+
+<h2 class="text-lavender-600 font-body text-h2-m-m md:text-h2-m-d italic">LIDT INFO OM MIG</h2>
+
+<p class="text-night font-body text-body-m-m md:hidden">
+  Hej, jeg hedder Emily. Jeg er 20 år og studerer multimediedesign på Københavns Erhvervsakademi (KEA), 
+  hvor jeg er på 3. semester og har valgfaget Digital Design. Min kreative tilgang og interesse for kodning gør 
+  mig særligt glad for faget, hvor jeg kan kombinere begge dele. <br> <br> Jeg opfatter mig selv som viljestærk og 
+  engageret. Jeg går op i at levere arbejde af høj kvalitet og er altid ivrig efter at lære og udvikle mig i processen.
+</p>
+
+<p class="hidden md:block text-night font-body text-body-m-d ">
+  Hej, jeg hedder Emily. Jeg er 20 år og studerer <br> multimediedesign på Københavns Erhvervsakademi (KEA),<br> 
+  hvor jeg er på 3. semester og har valgfaget Digital Design. Min <br> kreative tilgang og interesse for kodning <br>gør 
+  mig særligt glad for faget, hvor jeg kan kombinere <br>begge dele. <br> <br> Jeg opfatter mig selv som viljestærk og 
+  engageret. Jeg går op <br> i at levere arbejde af høj kvalitet og er altid ivrig <br> efter at lære og udvikle mig i processen.
+</p>
+</div>
+
+<div class="flex flex-col md:flex-row mt-padding-m md:mt-padding-xl ">
+<div class="bg-lime-500 px-padding-sm md:px-padding-3xl py-padding-m  flex flex-col items-center">
+
+  <h1 class="text-lavender-600 font-body md:text-h2-m-d text-h2-m-m italic mb-padding-sm ">BAGGRUND</h1>
+
+  <ul class="text-night font-body">
+    <li class="list-disc text-body-m-m md:text-body-m-d">Praktik i Imperiet (2019)</li>
+    <p class="text-body-s-m md:text-body-s-d">Grafisk design</p>
+    <li class="list-disc text-body-m-m md:text-body-m-d">Kastanievej Efterskole (2020-2021)</li>
+    <p class="text-body-s-m md:text-body-s-d">Billedkunstlinje</p>
+    <li class="list-disc text-body-m-m md:text-body-m-d">Københavns VUC (2021-2023)</li>
+    <p class="text-body-s-m md:text-body-s-d">HF</p>
+    <li class="list-disc text-body-m-m md:text-body-m-d">Københavns Erhversakademi (2023-2025)</li>
+    <p class="text-body-s-m md:text-body-s-d">Multimediedesign</p>
+  </ul>
+</div>
+
+
+<div class="bg-lavender-500 md:px-padding-3xl px-padding-ml py-padding-m  flex flex-col items-center">
+
+  <h1 class="text-lavender-600 font-body text-h2-m-m md:text-h2-m-d italic mb-padding-sm ">KVALIFIKATIONER</h1>
+
+  <ul class="text-night font-body flex flex-col gap-padding-xs">
+    <li class="list-disc text-body-m-m md:text-body-m-d">Front-end udvikling med HTML, CSS og JavaScript</li>
+   
+    <li class="list-disc text-body-m-m md:text-body-m-d">Illustration og grafisk design</li>
+    
+    <li class="list-disc text-body-m-m md:text-body-m-d">Adobe CC, Figma og Procreate</li>
+    
+    <li class="list-disc text-body-m-m md:text-body-m-d">Projektstyring og struktureret arbejdsgang</li>
+
+    <li class="list-disc text-body-m-m md:text-body-m-d">Flydende engelsk i tale og skrift</li>
+    
+  </ul>
+</div>
+
+</div>
+
+
+
+
+<div id="banner-wrapper" class="overflow-hidden w-full border-b border-t border-t-border-bm border-b-border-bm md:border-t-border-bd md:border-b-border-bd border-lavender-600  p-padding-xs md:p-padding-sm">
+  <div id="banner" class="flex items-center justify-around gap-8 animate-scroll">
+    <p class="text-body-m-m md:text-body-m-d text-lavender-600 font-body whitespace-nowrap">
+      Når jeg ikke designer og koder, elsker jeg at...
+    </p>
+
+    <img src="/svg/book.svg" alt="Bog ikon" class="mx-padding-sm">
+    <img src="/svg/brush.svg" alt="Pensel ikon" class="mx-padding-sm">
+    <img src="/svg/pencil.svg" alt="Blyant ikon" class="mx-padding-sm">
+
+    <!-- Duplicate content for seamless scrolling -->
+    <p class="text-body-m-m md:text-body-m-d text-lavender-600 font-body whitespace-nowrap">
+      Når jeg ikke designer og koder, elsker jeg at...
+    </p>
+    <img src="/svg/book.svg" alt="Bog ikon" class="mx-padding-sm">
+    <img src="/svg/brush.svg" alt="Pensel ikon" class="mx-padding-sm">
+    <img src="/svg/pencil.svg" alt="Blyant ikon" class="mx-padding-sm">
+  </div>
+</div>
+
+
+  </section>
+
+
+  <section id="projekter" class="bg-lavender-500 border-b border-b-border-bm md:border-b-border-bd border-lavender-600 py-padding-m">
+
+    <div class="md:mx-padding-4xl mx-padding-sm flex flex-col justify-center items-center ">
+   <h1 class="text-lavender-600 text-h1-hero-m md:text-h1-m-d font-headline">PROJEKTER</h1>
+   <h2 class="text-lavender-600 text-h2-m-m md:text-h2-m-d font-body italic text-center mb-padding-sm">HER ER DE PROJEKTER JEG ER MEST STOLT AF</h2>
+
+
+
+  <Carrousel></Carrousel>
+
+
+  </div>
+  </section>
+
+
+
+
+
+</MainLayout>

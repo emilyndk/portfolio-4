@@ -1,0 +1,22 @@
+---
+const {type="primary", size="default" } = Astro.props;
+
+// gælder for alle //
+const buttonStyling = " transition-all duration-300 ease-in-out  border  rounded-full font-body  ";
+
+
+const typeClasses ={
+"primary": "bg-lime-500 border-lime-600  text-lime-600 hover:bg-isabelline",
+"secondary": "bg-isabelline  border-lavender-600 text-lavender-600 hover:bg-lavender-500",
+
+};
+
+const sizeClasses ={
+    "default": "py-padding-button-y-m px-padding-button-x-m md:px-padding-button-x-d md:py-padding-button-y-d  md:border-bd border-bm text-button-m md:text-button-d",
+    "card": "py-padding-button-card-y-m px-padding-button-card-x-m md:px-padding-button-card-x-d md:py-padding-button-card-y-d  md:border-bd border-bm text-button-card-m md:text-button-card-d"
+};
+
+
+
+---
+<button class:list={[buttonStyling, typeClasses[type], sizeClasses[size] ]}><slot /></button>

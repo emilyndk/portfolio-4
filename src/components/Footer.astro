@@ -1,0 +1,76 @@
+---
+
+import Button from "./Button.astro"
+import Link from "./Link.astro"
+---
+<section id="footer">
+
+    <!-- Mobile Footer -->
+    <div class="md:hidden w-screen" id="mobile-footer">
+      <div class="flex flex-col justify-center items-center gap-padding-xs pt-padding-ml">
+        <h2 class="text-body-l-m md:text-body-l-d text-lavender-600 font-body">KONTAKT</h2>
+  
+        <div class="flex flex-col items-center gap-padding-2xs">
+          <a href="https://www.instagram.com/exiongart/">
+            <img class="w-[50px] hover:opacity-40 transition-opacity duration-300" src="/svg/instagram.svg" alt="Instagram ikon">
+          </a>
+          <a class="text-lavender-600 font-body text-body-s-m hover:text-lavender-500 transition-colors duration-300" href="https://www.instagram.com/exiongart/">@exiongart</a>
+        </div>
+  
+        <div class="flex flex-col items-center gap-padding-2xs">
+          <a href="mailto:emily.nielsen09@gmail.com">
+            <img class="w-[50px] hover:opacity-40 transition-opacity duration-300" src="/svg/mail.svg" alt="Mail ikon">
+          </a>
+          <a class="text-lavender-600 font-body text-body-s-m hover:text-lavender-500 transition-colors duration-300" href="mailto:emily.nielsen09@gmail.com">emily.nielsen09@gmail.com</a>
+        </div>
+  
+        <div class="flex flex-col items-center gap-padding-2xs">
+          <a href="tel:+4542416188">
+            <img class="w-[50px] hover:opacity-40 transition-opacity duration-300" src="/svg/phone.svg" alt="Phone ikon">
+          </a>
+          <a class="text-lavender-600 font-body text-body-s-m hover:text-lavender-500 transition-colors duration-300" href="tel:+4542416188">42416188</a>
+        </div>
+      </div>
+  
+      <div class="bg-no-repeat bg-bottom bg-cover flex flex-col items-center py-padding-xl p-padding-xl" style="background-image: url('/svg/footer-m.svg');">
+        <a href="#top"><Button type="primary">TOP</Button></a>
+      </div>
+    </div>
+  
+    <!-- Desktop Footer -->
+    <div class="md:block hidden" id="desk-footer">
+      <div class="flex flex-col justify-center items-center gap-padding-ml pt-padding-ml">
+        <h2 class="text-center text-body-l-m md:text-body-l-d text-lavender-600 font-body">KONTAKT</h2>
+  
+        <div class="flex flex-row justify-center gap-padding-3xl items-center">
+          <div class="flex flex-col items-center gap-padding-2xs">
+            <a href="https://www.instagram.com/exiongart/">
+              <img class="w-[80px] hover:opacity-40 transition-opacity duration-300" src="/svg/instagram.svg" alt="Instagram ikon">
+            </a>
+            <a class="text-lavender-600 font-body text-body-s-d hover:text-lavender-500 transition-colors duration-300" href="https://www.instagram.com/exiongart/">@exiongart</a>
+          </div>
+  
+          <div class="flex flex-col items-center gap-padding-2xs">
+            <a href="mailto:emily.nielsen09@gmail.com">
+              <img class="w-[80px] hover:opacity-40 transition-opacity duration-300" src="/svg/mail.svg" alt="Mail ikon">
+            </a>
+            <a class="text-lavender-600 font-body text-body-s-d hover:text-lavender-500 transition-colors duration-300" href="mailto:emily.nielsen09@gmail.com">emily.nielsen09@gmail.com</a>
+          </div>
+  
+          <div class="flex flex-col items-center gap-padding-2xs">
+            <a href="tel:+4542416188">
+              <img class="w-[80px] hover:opacity-40 transition-opacity duration-300" src="/svg/phone.svg" alt="Phone ikon">
+            </a>
+            <a class="text-lavender-600 font-body text-body-s-d hover:text-lavender-500 transition-colors duration-300" href="tel:+4542416188">42416188</a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="bg-no-repeat bg-bottom bg-cover flex flex-col items-center pt-padding-4xl p-padding-3xl" style="background-image: url('/svg/footer-d.svg');">
+        <a href="#top"><Button type="primary">TOP</Button></a>
+      </div>
+    </div>
+  
+  </section>
+      
+      
