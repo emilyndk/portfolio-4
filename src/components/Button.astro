@@ -1,22 +1,25 @@
 ---
-const {type="primary", size="default" } = Astro.props;
+const { variant= "primary", size = "desktop", input } = Astro.props;
 
 // gælder for alle //
-const buttonStyling = " transition-all duration-300 ease-in-out  border  rounded-full font-body  ";
+const buttonStyling = " transition-all duration-300 ease-in-out hover:bg-obsidian border rounded-full font-p-light  ";
 
 
-const typeClasses ={
-"primary": "bg-lime-500 border-lime-600  text-lime-600 hover:bg-isabelline",
-"secondary": "bg-isabelline  border-lavender-600 text-lavender-600 hover:bg-lavender-500",
+const variantClasses ={
+"primary": "border-obsidian text-obisidan hover:bg-obsidian hover:text-mist hover:border-mist",
+"secondary": "",
 
 };
 
 const sizeClasses ={
-    "default": "py-padding-button-y-m px-padding-button-x-m md:px-padding-button-x-d md:py-padding-button-y-d  md:border-bd border-bm text-button-m md:text-button-d",
-    "card": "py-padding-button-card-y-m px-padding-button-card-x-m md:px-padding-button-card-x-d md:py-padding-button-card-y-d  md:border-bd border-bm text-button-card-m md:text-button-card-d"
+    "desktop": "text-button-d px-padding-m py-padding-xs",
+    "mobil": "text-button-m px-padding-xs py-padding-xxs"
 };
 
 
 
 ---
-<button class:list={[buttonStyling, typeClasses[type], sizeClasses[size] ]}><slot /></button>
+
+<button class="buttonComponent" class:list={[buttonStyling, variantClasses[variant], sizeClasses[size]]}><slot />
+   <div class=""> {input} </div>
+</button>

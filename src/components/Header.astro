@@ -1,90 +1,91 @@
 ---
-// Import Link component
 import Link from "./Link.astro";
+const { links = [] } = Astro.props;
 ---
 
-<!-- Header Section -->
-<header class="fixed top-0 left-0 w-full z-50">
-  <!-- Burger Button -->
-  <button id="burger-button" class="z-50 md:hidden flex items-center mt-padding-xs justify-center w-14 h-14 right-[10%] absolute transition-opacity duration-200">
-    <span class="open-icon transition-transform transition-opacity duration-300 opacity-100 scale-100">
-      <img src="/svg/close.svg" alt="Menu" class="w-[40px]" />
-    </span>
-    <span class="close-icon transition-transform transition-opacity duration-300 opacity-0 scale-75 absolute">
-      <img src="/svg/open.svg" alt="Close" class="w-[30px]" />
-    </span>
+<header id="mobil-header" class="fixed top-0 w-screen z-50">
+  <!-- Mobile icons  -->
+  <button id="burger-button" class="w-full flex flex-row justify-end pr-padding-ml pt-padding-ml fixed z-50 lg:hidden transition-opacity duration-200">
+    <div id="streger" class="open-icon transition-transform duration-300 opacity-100 scale-100">
+      <img src="/svg/streger.svg" alt="Burger" />
+    </div>
+    <div id="kryds" class="close-icon transition-transform duration-300 opacity-0 scale-75 absolute">
+      <img src="/svg/kryds.svg" alt="Kryds" />
+    </div>
   </button>
 
-  <!-- Desktop Menu -->
-  <nav class="hidden md:block">
-    <ul class="flex justify-between m-padding-xs px-padding-xl py-padding-sm border border-bd border-lavender-600 rounded-full bg-isabelline">
-      <li><Link href="#top" type="primary">TOP</Link></li>
-      <li><Link href="#om" type="primary">OM MIG</Link></li>
-      <li><Link href="#projekter" type="primary">PROJEKTER</Link></li>
-    </ul>
-  </nav>
-
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="fixed inset-0 w-full h-full bg-isabelline flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="bg-gradient-to-b from-mist to-violet fixed w-full h-full flex items-center justify-center opacity-0 transition-opacity duration-300 lg:hidden">
     <nav>
-      <ul class="flex flex-col gap-padding-ml text-center">
-        <li><Link href="#top" type="primary">TOP</Link></li>
-        <li><Link href="#om" type="primary">OM MIG</Link></li>
-        <li><Link href="#projekter" type="primary">PROJEKTER</Link></li>
+      <ul class="flex flex-col text-center gap-padding-ml">
+        <Link variant="primary" input="Hjem" size="large" href="#hero"></Link>
+        <Link variant="primary" input="Om" size="large" href="#om"></Link>
+        <Link variant="primary" input="Projekter" size="large" href="#projekter"></Link>
+        <Link variant="primary" input="Kontakt" size="large" href="#footer"></Link>
+      
       </ul>
     </nav>
   </div>
+
 </header>
 
-<!-- Scroll Active State Script -->
+<header id="desktop-header" class="w-screen fixed top-0 ">
+
+  <!-- Desktop menu -->
+  <div class="hidden lg:block mt-padding-s mx-padding-xl border-b border-obsidian">
+   
+      <div class="flex justify-center  gap-padding-xl  ">
+      <Link variant="primary" input="Hjem" size="large" href="#hero"></Link>
+      <Link variant="primary" input="Om" size="large" href="#om"></Link>
+      <Link variant="primary" input="Projekter" size="large" href="#projekter"></Link>
+      <Link variant="primary" input="Kontakt" size="large" href="#footer"></Link>
+    
+  </div>
+
+</header>
+
+
+
 <script>
-  const sections = document.querySelectorAll("section");
-  const desktopNavLi = document.querySelectorAll("nav ul li");
-  const mobileNavLi = document.querySelectorAll("#mobile-menu nav ul li");
+// Get all the section links and sections
+const navLinks = document.querySelectorAll("[data-navlink]");
+const sections = document.querySelectorAll("section");
 
-  window.addEventListener("scroll", () => {
-    let current = "";
+function setActiveLink() {
+  let currentSection = null;
 
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop - 100; // Adjust offset for header height
-      const sectionHeight = section.offsetHeight;
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
+    const scrollPosition = window.scrollY;
 
-      // Check if the section is in view
-      if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
-        current = section.getAttribute("id");
-      }
-    });
-
-    // Update active state in both desktop and mobile menus
-    updateActiveState(current);
+    // Check if the section is currently in view
+    if (scrollPosition >= sectionTop - 100 && scrollPosition < sectionTop + sectionHeight) {
+      currentSection = section.id;
+    }
   });
 
-  // Update active state for both desktop and mobile menu items
-  function updateActiveState(current) {
-    desktopNavLi.forEach((li) => {
-      const link = li.querySelector('a');
-      li.classList.remove("active");
-      if (link.getAttribute('href') === `#${current}`) {
-        li.classList.add("active");
-      }
-    });
+  navLinks.forEach((link) => {
+    if (link.getAttribute("href") === `#${currentSection}`) {
+      link.setAttribute("aria-current", "page");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
+}
 
-    mobileNavLi.forEach((li) => {
-      const link = li.querySelector('a');
-      li.classList.remove("active");
-      if (link.getAttribute('href') === `#${current}`) {
-        li.classList.add("active");
-      }
-    });
-  }
+// Call the function on scroll
+window.addEventListener("scroll", setActiveLink);
+
+// Call the function on page load to ensure correct state
+setActiveLink();
 </script>
 
-<!-- Burger Menu Toggle Script -->
 <script>
-  const burgerButton = document.getElementById('burger-button');
+ const burgerButton = document.getElementById('burger-button');
   const mobileMenu = document.getElementById('mobile-menu');
-  const openIcon = burgerButton.querySelector('.open-icon');
-  const closeIcon = burgerButton.querySelector('.close-icon');
+  const openIcon = document.getElementById('streger');
+  const closeIcon = document.getElementById('kryds');
   const links = mobileMenu.querySelectorAll('a[data-link]'); // Ensure these are correct links
 
   // Function to toggle the mobile menu visibility

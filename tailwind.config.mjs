@@ -6,117 +6,117 @@ export default {
 
 	theme: {
 
-        /* Tilføj din egen farvepalette nedenfor */
+       
+         
+      
+          extend: {
+
+             /* Tilføj din egen farvepalette nedenfor */
         colors: {
-             transparent: 'transparent',
-             current: 'currentColor',
-             'lavender': {
-                 500: '#E2D9FF',
-                 600: '#755CCE',
-                 
-             },
+          transparent: 'transparent',
+          current: 'currentColor',
+          
 
-             'lime': {
-                 500: '#C2E668',
-                 600: '#5A8438',
-                 
-             },
+         
+              
+          
 
-
-             'isabelline': '#F4F3F0',
-             'night': '#0C090D',
-         },
+          'violet': '#6E56E7',
+          'obsidian': '#161719',
+          'mist': '#DBD7E9',
+      },
 
          spacing: {
-            'radius-m': '40px',
-            'bm': '1.2px',
-            'bd': '3px',
-            'padding-2xs': '5px',
-            'padding-xs': '16px',
-            'padding-sm': '32px',
-            'padding-m': '40px',
-            'padding-ml': '48px',
-            'padding-xl': '80px',
-            'padding-3xl': '112px',
-            'padding-4xl': '128px',
-            'padding-4.1xl': '198px',
-            'padding-5xl': '322px',
-            'padding-6xl': '424px',
-            'padding-button-x-d':'48px',
-            'padding-button-y-d':'16px',
-            'padding-button-x-m':'40px',
-            'padding-button-y-m':'8px',
+            'padding-xxs': '10px',
+            'padding-xs': '15px',
+            'padding-s': '24px',
+            'padding-m': '34px',
+            'padding-ml': '40px',
+            'padding-l': '90px',
+            'padding-xl': '128px',
+            
+            'radius-s':'10px',
+            'radius-full':'999px',
+            
+            'stroke-xs':'1px',
+            'stroke-s':'1.5px',
 
-            'padding-button-card-x-d':'39px',
-            'padding-button-card-y-d':'1px',
-            'padding-button-card-x-m':'30px',
-            'padding-button-card-y-m':'3px',
-            'margin-x-d':'48px',
-            'margin-x-m':'32px',
+            
     
       
             
           },
 
-          fontFamily: {
-            headline: ['itc-american-typewriter', 'serif'],
-            body: ['elza-text', 'sans-serif'],
-            
-          },
+         
       
           fontSize: {
             base: ['1rem', { lineHeight: '1.5rem' }],
             large: ['2.5rem', { lineHeight: '3.75rem' }],
           },
           borderWidth: {
-            DEFAULT: '3px',
-            'bd': '3px', // Custom border width
-            'bm': '1.8px', // Custom mobile border width
+            DEFAULT: '1px',
+            's': '1.5px', // Custom border width
+            // Custom mobile border width
           },
-         
-      
-          extend: {
-            fontSize: {
+            
+
+              gridTemplateColumns: {
+                'grid-mobil': 'repeat(4, 1fr)',
+                'grid-desktop': 'repeat(12, 1fr)',
+        
+              },
+
+
+              margin:{
+                'margin-mobil': '40px',
+                'margin-desktop': '60px',
+            },
+            
+            gap:{
+                'gap-mobil': '10px',
+                'gap-desktop': '20px',
+            },
               
-              // Headings H1 desktop
-              'h1-hero-d': ['110px', { lineHeight: '110%' }],
-              'h1-m-d': ['80px', { lineHeight: '110%' }],
-              'h1-card-d': ['30px', { lineHeight: '36px' }],
+              // Headings desktop
+              fontSize: {
+              'h1-d': ['128px', { lineHeight: 'auto', }],
+              'h2-d': ['50px', { lineHeight: 'auto',}],             
+              'h3-d': ['36px', { lineHeight: 'auto',}],
 
-               // Headings H1 mobile
-               'h1-hero-m': ['50px', { lineHeight: '110%' }],
-               'h1-m-m': ['35px', { lineHeight: '38.8px' }],
-               
-      
-              // Headings H2 desktop
-              'h2-m-d': ['50px', { lineHeight: '60px',}],
-
-               // Headings H2 mobile
-               'h2-m-m': ['26px', { lineHeight: '37px',  }],
+              // Headings mobile
+              'h1-m': ['60px', { lineHeight: 'auto' }],
+              'h2-m': ['40px', { lineHeight: 'auto',  }],
+              'h3-m': ['30px', { lineHeight: 'auto',  }],
              
       
               // Body desktop
-              'body-l-d': ['30px', { lineHeight: '36px',  }],
-              'body-m-d': ['28px', { lineHeight: '45px',  }],
-              'body-s-d': ['20px', { lineHeight: '40px', }],
-              'body-card-d': ['15px', { lineHeight: '20px',  }],
+              'button-d': ['36px', { lineHeight: 'auto',  }],
+              'p-l-d': ['36px', { lineHeight: 'auto',  }],
+              'p-m-d': ['22px', { lineHeight: 'auto',  }],
+              'p-s-d': ['15px', { lineHeight: 'auto',  }],
+             
 
                // Body mobile
-               'body-l-m': ['25px', { lineHeight: '30px',  }],
-               'body-m-m': ['15px', { lineHeight: '28px',  }],
-               'body-s-m': ['12px', { lineHeight: '33px',  }],
-
-                // Button desktop
-                'button-d': ['30px', { lineHeight: '36px',  }],
-                'button-card-d': ['20px', { lineHeight: '36px',  }],
-
-                // Button mobile
-                'button-m': ['20px', { lineHeight: '24px', }],
-                'button-card-m': ['15px', { lineHeight: '24px', }],
+               'button-m': ['20px', { lineHeight: 'auto',  }],
+               'p-l-m': ['24px', { lineHeight: 'auto',  }],
+               'p-m-m': ['16px', { lineHeight: 'auto',  }],
+               'p-s-m': ['12px', { lineHeight: 'auto',  }],
                 
-               
+                // Link
+                'link-m': ['36px', { lineHeight: 'auto',  }],
+                'link-s': ['20px', { lineHeight: 'auto',  }],
+
+                
     
             },
+
+            fontFamily:{
+              'p-light-italic':['"Sansation Light Italic"','sans-serif'],
+              'p-light':['"Sansation Light"','sans-serif'],
+              'p-regular':['"Sansation Regular"','sans-serif'],
+              'p-italic':['"Sansation Italic"','sans-serif'],
+            }
+            
 
             
     
