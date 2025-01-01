@@ -7,6 +7,9 @@ import 'animate.css';
 
 const { title } = Astro.props;
 const { links = [] } = Astro.props;
+
+
+
 ---
 
 <html lang="da">
@@ -24,8 +27,10 @@ const { links = [] } = Astro.props;
     <link rel="stylesheet" href="https://use.typekit.net/prt2ztm.css">
   </head>
   <body class="bg-gradient-to-b from-mist to-violet">
+
+  
     <!-- Header -->
-    <header class="">
+    <header class="fixed top-0 z-50">
       <Header />
     </header>
 
@@ -35,11 +40,21 @@ const { links = [] } = Astro.props;
     </main>
 
     <!-- Footer -->
-    <footer>
+    <footer id="footer">
       <Footer />
     </footer>
+    
   </body>
 </html>
 
+<script>
+  import { gsap } from "gsap";
+    
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    
+    
+    gsap.registerPlugin(ScrollTrigger);
 
 
+
+</script>

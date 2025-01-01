@@ -43,7 +43,24 @@ html {
 /* light italic */
 @font-face {
   font-family: 'Sansation Light Italic';
-  src: url('/font/SansationLight Italic-EOZe.woff2') format('woff2');
+  src: url('/font/SansationLightItalic-EOZe.woff2') format('woff2');
   font-weight: 700; /* Bold weight */
   font-style: normal;
 }
+::-webkit-scrollbar {
+  width: 12px; 
+  background-color: #DBD7E9;/* Adjust width */
+}
+
+::-webkit-scrollbar-track {
+ background:  #DBD7E9; /* Track color */
+  border-radius: 10px; /* Rounded corners */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #161719; /* Thumb color */
+  border-radius: 10px;
+  transition: background-color 1s ease-in-out; /* Smooth, rounded thumb */
+  /* Smooth color transition */
+}
+

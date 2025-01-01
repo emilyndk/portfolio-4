@@ -21,9 +21,10 @@ export default {
               
           
 
-          'violet': '#6E56E7',
+          'violet': '#6E56E7  ',
+          'twilight':'#6E56E7     ',
           'obsidian': '#161719',
-          'mist': '#DBD7E9',
+          'mist': '#DBD7E9 ',
       },
 
          spacing: {
@@ -80,7 +81,7 @@ export default {
               // Headings desktop
               fontSize: {
               'h1-d': ['128px', { lineHeight: 'auto', }],
-              'h2-d': ['50px', { lineHeight: 'auto',}],             
+              'h2-d': ['60px', { lineHeight: 'auto',}],             
               'h3-d': ['36px', { lineHeight: 'auto',}],
 
               // Headings mobile
@@ -111,7 +112,8 @@ export default {
             },
 
             fontFamily:{
-              'p-light-italic':['"Sansation Light Italic"','sans-serif'],
+              'header':['"Shrikhand"', 'sans-serif'],
+              'p-light-italic':["Sansation Light Italic",'sans-serif'],
               'p-light':['"Sansation Light"','sans-serif'],
               'p-regular':['"Sansation Regular"','sans-serif'],
               'p-italic':['"Sansation Italic"','sans-serif'],
