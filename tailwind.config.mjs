@@ -21,7 +21,7 @@ export default {
               
           
 
-          'violet': '#6E56E7  ',
+          'violet': '#C8AAFF  ',
           'twilight':'#6E56E7     ',
           'obsidian': '#161719',
           'mist': '#DBD7E9 ',
